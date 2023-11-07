@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dic7bmylkvh72"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5qh8m"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_0j5s8"]
+font_size = 14
+
+[node name="Book" type="ColorRect"]
+custom_minimum_size = Vector2(0, 100)
+color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[node name="Stacker" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="Stacker"]
+layout_mode = 2
+text = "How to Train Your Dragon"
+
+[node name="Author" type="Label" parent="Stacker"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Credessa Cowell"
+label_settings = SubResource("LabelSettings_5qh8m")
+
+[node name="Borrower" type="Label" parent="Stacker"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Borrowed by Admin"
+label_settings = SubResource("LabelSettings_0j5s8")
+vertical_alignment = 1

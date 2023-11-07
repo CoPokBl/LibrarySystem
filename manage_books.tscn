@@ -1,0 +1,96 @@
+[gd_scene load_steps=4 format=3 uid="uid://rt8obhx3bva3"]
+
+[ext_resource type="Script" path="res://manage_books.gd" id="1_y2b82"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fppwn"]
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_ws4b4"]
+font_size = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y2b82")
+
+[node name="Vertical" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Vertical"]
+layout_mode = 2
+text = "Manage Books"
+label_settings = SubResource("LabelSettings_fppwn")
+horizontal_alignment = 1
+
+[node name="Horizontal" type="HBoxContainer" parent="Vertical"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ViewBooks" type="VBoxContainer" parent="Vertical/Horizontal"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Vertical/Horizontal/ViewBooks"]
+layout_mode = 2
+text = "View Books"
+label_settings = SubResource("LabelSettings_ws4b4")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Vertical/Horizontal/ViewBooks"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Books" type="VBoxContainer" parent="Vertical/Horizontal/ViewBooks/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AddBook" type="VBoxContainer" parent="Vertical/Horizontal"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Vertical/Horizontal/AddBook"]
+layout_mode = 2
+text = "Add Book"
+label_settings = SubResource("LabelSettings_ws4b4")
+horizontal_alignment = 1
+
+[node name="Title" type="TextEdit" parent="Vertical/Horizontal/AddBook"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "Title"
+
+[node name="Author" type="TextEdit" parent="Vertical/Horizontal/AddBook"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "Author"
+
+[node name="Year" type="TextEdit" parent="Vertical/Horizontal/AddBook"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "Year"
+
+[node name="Desc" type="TextEdit" parent="Vertical/Horizontal/AddBook"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "Description"
+
+[node name="Submit" type="Button" parent="Vertical/Horizontal/AddBook"]
+layout_mode = 2
+text = "Create"
+
+[node name="Back" type="Button" parent="Vertical"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Vertical/Horizontal/AddBook/Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="Vertical/Back" to="." method="_on_back_pressed"]

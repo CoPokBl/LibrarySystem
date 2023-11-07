@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://clhq382073s16"]
+
+[ext_resource type="Script" path="res://return.gd" id="1_o6gqr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d3lu2"]
+font_size = 26
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o6gqr")
+
+[node name="Vertical" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Vertical"]
+layout_mode = 2
+text = "Select Book To Return"
+label_settings = SubResource("LabelSettings_d3lu2")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Vertical"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Books" type="VBoxContainer" parent="Vertical/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Back" type="Button" parent="Vertical"]
+layout_mode = 2
+text = "Back"
+
+[node name="ReturnConfirmDialog" type="ConfirmationDialog" parent="."]
+title = "Return"
+initial_position = 1
+ok_button_text = "Return"
+dialog_text = "Are you sure you want to return THIS BOOK?"
+
+[connection signal="pressed" from="Vertical/Back" to="." method="_on_back_pressed"]

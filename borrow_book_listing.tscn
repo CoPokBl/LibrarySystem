@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://7yv7204b15en"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1aksu"]
+font_size = 12
+
+[node name="Book" type="Button"]
+custom_minimum_size = Vector2(0, 100)
+size_flags_horizontal = 3
+
+[node name="TextAligner" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 317.0
+offset_bottom = 70.0
+
+[node name="Title" type="Label" parent="TextAligner"]
+layout_mode = 2
+text = "Harry Potter and the Philosopher's Stone"
+
+[node name="Desc" type="Label" parent="TextAligner"]
+layout_mode = 2
+text = "Author: Someone
+Year: 2023
+Description: Something happened"
+label_settings = SubResource("LabelSettings_1aksu")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3bjo6a6phltu"]
+
+[sub_resource type="Theme" id="Theme_4hnsw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uu04v"]
+font_size = 12
+
+[node name="Background" type="ColorRect"]
+custom_minimum_size = Vector2(0, 130)
+size_flags_horizontal = 3
+color = Color(0.352941, 0.380392, 0.380392, 1)
+
+[node name="TextAligner" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_4hnsw")
+
+[node name="Title" type="Label" parent="TextAligner"]
+layout_mode = 2
+text = "Harry Potter and the Chamber Of Secrets"
+
+[node name="Desc" type="Label" parent="TextAligner"]
+layout_mode = 2
+text = "Author: Person
+Year: 1693
+Desc: Hello there person."
+label_settings = SubResource("LabelSettings_uu04v")
+
+[node name="Delete" type="Button" parent="TextAligner"]
+layout_mode = 2
+text = "Delete"
+
+[node name="Id" type="Label" parent="."]
+visible = false
+layout_mode = 2
+offset_top = 129.0
+offset_right = 318.0
+offset_bottom = 152.0

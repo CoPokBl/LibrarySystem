@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://c24ic026v21q7"]
+
+[ext_resource type="Script" path="res://home.gd" id="1_gui4p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_665ul"]
+font_size = 30
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gui4p")
+
+[node name="Vertical" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Vertical"]
+layout_mode = 2
+text = "LOADING..."
+label_settings = SubResource("LabelSettings_665ul")
+horizontal_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="Vertical"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Horizontal" type="HBoxContainer" parent="Vertical"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="borrow" type="Button" parent="Vertical/Horizontal"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+text = "Borrow"
+
+[node name="Return" type="Button" parent="Vertical/Horizontal"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+text = "Return"
+
+[node name="Admin" type="VBoxContainer" parent="Vertical"]
+layout_mode = 2
+
+[node name="Admin1" type="HBoxContainer" parent="Vertical/Admin"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="AddBooks" type="Button" parent="Vertical/Admin/Admin1"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+text = "Add Books"
+
+[node name="ViewBorrowed" type="Button" parent="Vertical/Admin/Admin1"]
+custom_minimum_size = Vector2(150, 75)
+layout_mode = 2
+text = "View Borrowed"
+
+[node name="Admin2" type="HBoxContainer" parent="Vertical/Admin"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Settings" type="Button" parent="Vertical/Admin/Admin2"]
+custom_minimum_size = Vector2(305, 75)
+layout_mode = 2
+text = "Settings"
+
+[node name="Logout" type="Button" parent="Vertical"]
+custom_minimum_size = Vector2(305, 75)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Logout"
+
+[node name="BorrowLimitDialog" type="AcceptDialog" parent="."]
+title = "Borrow"
+initial_position = 1
+size = Vector2i(645, 109)
+dialog_text = "You have reached your borrow limit. 
+Please return books before borrowing more."
+
+[node name="CantReturn" type="AcceptDialog" parent="."]
+title = "Return"
+initial_position = 1
+size = Vector2i(240, 100)
+dialog_text = "You have no books to return."
+
+[connection signal="pressed" from="Vertical/Horizontal/borrow" to="." method="_on_borrow_pressed"]
+[connection signal="pressed" from="Vertical/Horizontal/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="Vertical/Admin/Admin1/AddBooks" to="." method="_on_add_books_pressed"]
+[connection signal="pressed" from="Vertical/Admin/Admin1/ViewBorrowed" to="." method="_on_view_borrowed_pressed"]
+[connection signal="pressed" from="Vertical/Admin/Admin2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Vertical/Logout" to="." method="_on_logout_pressed"]

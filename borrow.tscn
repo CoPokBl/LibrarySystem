@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qf6tw16lgye"]
+
+[ext_resource type="Script" path="res://borrow.gd" id="1_hbg7q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_11gwp"]
+font_size = 32
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hbg7q")
+
+[node name="Vertical" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Vertical"]
+layout_mode = 2
+text = "Borrow"
+label_settings = SubResource("LabelSettings_11gwp")
+horizontal_alignment = 1
+
+[node name="Search" type="LineEdit" parent="Vertical"]
+layout_mode = 2
+placeholder_text = "Enter search terms..."
+
+[node name="Results" type="ScrollContainer" parent="Vertical"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemContainer" type="VBoxContainer" parent="Vertical/Results"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Back" type="Button" parent="Vertical"]
+layout_mode = 2
+text = "Back"
+
+[node name="BorrowConfirm" type="ConfirmationDialog" parent="."]
+title = "Borrow"
+initial_position = 1
+size = Vector2i(394, 100)
+ok_button_text = "Borrow"
+dialog_text = "Are you sure you would like to borrow "
+dialog_autowrap = true
+
+[connection signal="text_changed" from="Vertical/Search" to="." method="_on_search_text_changed"]
+[connection signal="pressed" from="Vertical/Back" to="." method="_on_back_pressed"]

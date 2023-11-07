@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnr5wdywcwnom"]
+
+[ext_resource type="Script" path="res://settings.gd" id="1_ejk6k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gx6i7"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_hewt5"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_7x7re"]
+font_size = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ejk6k")
+
+[node name="Vertical" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Vertical"]
+layout_mode = 2
+text = "Settings"
+label_settings = SubResource("LabelSettings_gx6i7")
+horizontal_alignment = 1
+
+[node name="Split" type="HBoxContainer" parent="Vertical"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Users" type="VBoxContainer" parent="Vertical/Split"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Vertical/Split/Users"]
+layout_mode = 2
+text = "Users"
+label_settings = SubResource("LabelSettings_hewt5")
+horizontal_alignment = 1
+
+[node name="Id" type="LineEdit" parent="Vertical/Split/Users"]
+layout_mode = 2
+placeholder_text = "ID"
+
+[node name="Name" type="LineEdit" parent="Vertical/Split/Users"]
+layout_mode = 2
+placeholder_text = "Name"
+
+[node name="Create" type="Button" parent="Vertical/Split/Users"]
+layout_mode = 2
+text = "Create User"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Vertical/Split/Users"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UsersContainer" type="VBoxContainer" parent="Vertical/Split/Users/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Options" type="VBoxContainer" parent="Vertical/Split"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Vertical/Split/Options"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_7x7re")
+horizontal_alignment = 1
+
+[node name="BorrowLimitC" type="HBoxContainer" parent="Vertical/Split/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Vertical/Split/Options/BorrowLimitC"]
+layout_mode = 2
+text = "Borrow Limit"
+
+[node name="BorrowLimit" type="LineEdit" parent="Vertical/Split/Options/BorrowLimitC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+placeholder_text = "Integer > 0"
+max_length = 3
+
+[node name="Back" type="Button" parent="Vertical"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Vertical/Split/Users/Create" to="." method="_on_create_user_pressed"]
+[connection signal="text_changed" from="Vertical/Split/Options/BorrowLimitC/BorrowLimit" to="." method="_on_borrow_limit_text_changed"]
+[connection signal="pressed" from="Vertical/Back" to="." method="_on_back_pressed"]

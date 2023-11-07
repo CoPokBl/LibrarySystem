@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsutnivaxex2s"]
+
+[ext_resource type="Script" path="res://login.gd" id="1_6xgav"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ag2fe"]
+font_color = Color(0.984314, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xgav")
+
+[node name="PaddingContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Padding" type="VBoxContainer" parent="PaddingContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="VBoxContainer" parent="PaddingContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="PaddingContainer/Content"]
+layout_mode = 2
+text = "User Login"
+horizontal_alignment = 1
+
+[node name="Error" type="Label" parent="PaddingContainer/Content"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ag2fe")
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="PaddingContainer/Content"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+placeholder_text = "Enter User ID"
+
+[node name="Button" type="Button" parent="PaddingContainer/Content"]
+layout_mode = 2
+text = "Login"
+
+[node name="Padding2" type="VBoxContainer" parent="PaddingContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="PaddingContainer/Content/Button" to="." method="_on_button_pressed"]
