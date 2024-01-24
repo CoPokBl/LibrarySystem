@@ -3,6 +3,7 @@ extends Control
 @onready var users_container: VBoxContainer = $Vertical/Split/Users/ScrollContainer/UsersContainer;
 @onready var new_user_id: LineEdit = $Vertical/Split/Users/Id;
 @onready var new_user_name: LineEdit = $Vertical/Split/Users/Name;
+@onready var borrwow_limit_edit: LineEdit = $Vertical/Split/Options/BorrowLimitC/BorrowLimit;
 var user_res: PackedScene = preload("res://user_listing.tscn");
 var config: ConfigFile = ConfigFile.new();
 
@@ -15,6 +16,9 @@ func _ready():
 	for user_id in users:
 		var name: String = config.get_value("users", user_id);
 		add_user_to_list(user_id, name);
+	
+	# Load config values
+	borrwow_limit_edit.text = config.get_value("config", "max_borrow", "1");
 
 
 func add_user_to_list(id: String, name: String):

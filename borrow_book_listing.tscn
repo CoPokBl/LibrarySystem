@@ -6,6 +6,7 @@ font_size = 12
 [node name="Book" type="Button"]
 custom_minimum_size = Vector2(0, 100)
 size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="TextAligner" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -22,3 +23,5 @@ text = "Author: Someone
 Year: 2023
 Description: Something happened"
 label_settings = SubResource("LabelSettings_1aksu")
+clip_text = true
+max_lines_visible = 3

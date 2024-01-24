@@ -24,6 +24,9 @@ text = "Author: Person
 Year: 1693
 Desc: Hello there person."
 label_settings = SubResource("LabelSettings_uu04v")
+clip_text = true
+text_overrun_behavior = 1
+max_lines_visible = 3
 
 [node name="Delete" type="Button" parent="TextAligner"]
 layout_mode = 2
